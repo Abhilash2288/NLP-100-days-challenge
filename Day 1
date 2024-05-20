@@ -1,0 +1,49 @@
+# NLP(Natural language processing), Day-1
+
+## Tokenization
+
+
+Tokenization in Natural Language Processing (NLP) is the process of breaking down a text into smaller units, typically words or sentences, called tokens.
+
+!pip install nltk
+
+import nltk
+nltk.download('punkt')
+
+from nltk.tokenize import sent_tokenize
+from nltk.tokenize import word_tokenize
+from nltk.tokenize import wordpunct_tokenize          
+from nltk.tokenize import TreebankWordTokenizer #class
+
+corpus="""hello, my name is Abhilash, i love NLP. 
+Let's begin."""
+sentence=sent_tokenize(corpus)
+print(sentence)
+words=word_tokenize(corpus)
+print(words)
+
+for word in words:
+    print(word)
+
+print(wordpunct_tokenize(corpus))
+
+tokenizer=TreebankWordTokenizer() 
+token=tokenizer.tokenize(corpus)      
+print(token)
+
+## Stemming
+
+Stemming is a text normalization technique in Natural Language Processing (NLP) that involves reducing words to their root or base form.The goal of stemming is to strip off prefixes and suffixes from words to reduce them to a common base form, which can help in simplifying the text and reducing variability. 
+
+from nltk.stem import PorterStemmer
+from nltk.stem import RegexpStemmer
+from nltk.stem import SnowballStemmer
+
+stemming=PorterStemmer()
+
+words = ["running", "runner", "runs", "easily", "fairly"]
+for word in words:
+    print(word+"--->"+stemming.stem(word))
+
+
+
